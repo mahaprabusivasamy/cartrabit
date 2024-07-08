@@ -7,5 +7,6 @@ router.post('/create', authMiddleware, roomController.createRoom);
 router.get('/available', roomController.getAvailableRooms);
 router.get('/owner/:ownerId', authMiddleware, roomController.getOwnerRooms);
 router.put('/:roomId', authMiddleware, roomController.updateRoom);
+router.post('/details',authMiddleware,roomController.details)
 
 module.exports = router;

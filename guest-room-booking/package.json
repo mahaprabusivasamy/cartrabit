@@ -1,4 +1,3 @@
-
 {
   "name": "guest-room-booking",
   "version": "1.0.0",
@@ -9,6 +8,7 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "config": "^3.3.7",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "jsonwebtoken": "^9.0.0",

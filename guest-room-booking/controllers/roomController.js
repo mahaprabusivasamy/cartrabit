@@ -59,3 +59,25 @@ exports.updateRoom = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
+
+
+exports.details = async (req, res) => {
+  const roomIds = req.body.roomIds; // Array of room IDs from request body
+
+  try {
+    // Find rooms by IDs
+    const rooms = await Room.find({ _id: { $in: roomIds } });
+
+    // Map room details as needed (simplified here for roomName)
+    const roomDetails = rooms.map((room) => ({
+      _id: room._id,
+      roomName: room.roomName,
+      // Add more fields as needed
+    }));
+
+    res.status(200).json(roomDetails);
+  } catch (err) {
+    console.error('Error fetching room details:', err);
+    res.status(500).json({ error: 'Server error' });
+  }
+};

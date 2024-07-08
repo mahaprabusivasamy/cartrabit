@@ -28,24 +28,44 @@ exports.register = async (req, res) => {
   }
 };
 
+
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
     const user = await User.findOne({ email });
+
     if (!user) {
       return res.status(400).json({ msg: 'Invalid Credentials' });
     }
 
     const isMatch = await bcrypt.compare(password, user.password);
+
     if (!isMatch) {
       return res.status(400).json({ msg: 'Invalid Credentials' });
     }
 
-    const payload = { user: { id: user.id, role: user.role } };
+    const payload = {
+      user: {
+        id: user.id,
+        name: user.name,
+        email: user.email,
+        role: user.role // Assuming role is part of your user schema
+        // Add other fields as needed
+      }
+    };
 
     jwt.sign(payload, 'RmkaC9Jl2x', { expiresIn: '1h' }, (err, token) => {
       if (err) throw err;
-      res.json({ token });
+      res.json({
+        token,
+        user: {
+          id: user.id,
+          name: user.name,
+          email: user.email,
+          role: user.role // Return role in the response
+          // Add other fields as needed
+        }
+      });
     });
   } catch (err) {
     console.error(err.message);
