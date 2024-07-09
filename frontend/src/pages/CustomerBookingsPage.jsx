@@ -5,11 +5,9 @@ import BookingTable from '../components/BookingTable';
 
 const CustomerBookingsPage = ({ customer }) => {
   const [bookings, setBookings] = useState([]);
-  console.log(customer);
-//    console.log(bookings);
-useEffect(() => {
-    console.log('Customer:', customer);
-    console.log('Bookings:', bookings);
+
+  useEffect(() => {
+    console.log('Customer:', customer); // Ensure this logs the correct customer
     const fetchBookings = async () => {
       try {
         const res = await getCustomerBookings(customer); // Assuming this function returns bookings
@@ -20,11 +18,13 @@ useEffect(() => {
     };
     fetchBookings();
   }, [customer]);
-  
+
+  console.log(bookings)
+
   return (
     <div>
       <h2>Your Bookings</h2>
-      <BookingTable bookings={bookings} />
+      <BookingTable bookings={bookings} customer={customer}/>
     </div>
   );
 };

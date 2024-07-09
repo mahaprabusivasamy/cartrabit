@@ -69,13 +69,13 @@ exports.details = async (req, res) => {
     const rooms = await Room.find({ _id: { $in: roomIds } });
 
     // Map room details as needed (simplified here for roomName)
-    const roomDetails = rooms.map((room) => ({
-      _id: room._id,
-      roomName: room.roomName,
-      // Add more fields as needed
-    }));
+    // const roomDetails = rooms.map((room) => ({
+    //   _id: room._id,
+    //   roomName: room.roomName,
+    //   // Add more fields as needed
+    // }));
 
-    res.status(200).json(roomDetails);
+    res.status(200).json(rooms);
   } catch (err) {
     console.error('Error fetching room details:', err);
     res.status(500).json({ error: 'Server error' });

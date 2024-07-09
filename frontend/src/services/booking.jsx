@@ -10,8 +10,8 @@ export const getOwnerBookings = async () => {
   return res.data;
 };
 
-export const getCustomerBookings = async () => {
-  const res = await axios.get(`${API_URL}/api/bookings/customer`, {
+export const getCustomerBookings = async (customer) => {
+  const res = await axios.get(`${API_URL}/api/bookings/customer?customerId=${customer.id} `, {
     headers: { 'x-auth-token': localStorage.getItem('x-auth-token') },
   });
   return res.data;

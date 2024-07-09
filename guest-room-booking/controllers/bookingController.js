@@ -201,11 +201,23 @@ exports.getOwnerBookings = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
+// exports.getCustomerBookings = async (req, res) => {
+//   const { id } = req.query; // Assuming you pass customer_id as a query parameter
+
+//   try {
+//     const bookings = await Booking.find({customer_id:id});
+//     res.json(bookings);
+//   } catch (error) {
+//     console.error('Error fetching customer bookings:', error);
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// };
+// In your controller file (e.g., controllers/booking.js)
 exports.getCustomerBookings = async (req, res) => {
-  const { customer_id } = req.query; // Assuming you pass customer_id as a query parameter
+  const { customerId } = req.query; // Ensure you use the correct parameter
 
   try {
-    const bookings = await Booking.find({ customer_id });
+    const bookings = await Booking.find({ customer_id: customerId });
     res.json(bookings);
   } catch (error) {
     console.error('Error fetching customer bookings:', error);

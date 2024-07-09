@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Routes, Route, useLocation } from 'react-router-dom';
 import OwnerRoomsPage from './OwnerRoomPage';
 import OwnerBookingsPage from './OwnerBookingsPage';
+import RoomForm from '../components/RoomForm';
 
 const OwnerDashboardPage = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const OwnerDashboardPage = () => {
           <Route path="/owner/bookings" element={<OwnerBookingsPage />} />
         </Routes>
       </main>
+      <RoomForm/>
     </div>
   );
 };

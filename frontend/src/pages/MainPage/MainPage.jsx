@@ -1,8 +1,8 @@
 import React from 'react'
-
+import "../css/Mainpage.css"
 export default function MainPage() {
   return (
-    <div>
+    <div  className='mainpage'>
         <header>
           <h1>Guest Room Booking</h1>
           <nav>

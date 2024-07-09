@@ -1,34 +1,49 @@
 // src/pages/CustomerDashboardPage.jsx
 import React from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import CustomerBookingsPage from './CustomerBookingsPage';
 import AvailableRoomsPage from './AvailableRommPages';
-
+import "./css/CustomerDashboardPage.css"
 const CustomerDashboardPage = () => {
-  // Fetch customer data from localStorage
   const customer = JSON.parse(localStorage.getItem('user'));
+  const navigate = useNavigate();
 
   if (!customer) {
-    // Handle case where customer data is not available (e.g., not logged in)
     return <div>Error: Customer data not found</div>;
   }
-  console.log(customer)
+
+  const handleLogout = () => {
+    localStorage.removeItem('user');
+    navigate('/');
+  };
+
+  console.log(customer);
+
   return (
-    <div>
-      <h2>Customer Dashboard</h2>
-      <p>Customer ID: {customer.id}</p>
-      <p>Customer Name: {customer.name}</p>
-      <nav>
-        <Link to="/customer/rooms">Rooms</Link>
-        <br />
-        <br />
-        <Link to="/customer/bookings">Bookings</Link>
-      </nav>
-      <Routes>
-        <Route path="/rooms" element={<AvailableRoomsPage />} />
-        <Route path="/bookings" element={<CustomerBookingsPage customer={customer} />} />
-      </Routes>
-    </div>
+    <>
+      <div>
+        <div className="header">
+          <h2 className='cusheadnamedash'>Customer Dashboard</h2>
+          {/* <nav>
+            <br />
+            <Link to="/customer/bookings">Bookings</Link>
+          </nav> */}
+          <div className="cusdashbtn">
+          <button onClick={handleLogout}>Logout</button></div>
+        </div>
+        {/* <p>Customer ID: {customer.id}</p> */}
+        <div className="maindashpagecustomer">
+        <p>Welcome <span>{customer.name}</span></p>
+        </div>
+       
+        {/* <Routes>
+          <Route path="/bookings" element={<CustomerBookingsPage customer={customer} />} />
+        </Routes> */}
+      </div>
+      <AvailableRoomsPage />
+
+      <CustomerBookingsPage customer={customer}/>
+    </>
   );
 };
 

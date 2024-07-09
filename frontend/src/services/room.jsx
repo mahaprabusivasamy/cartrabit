@@ -21,3 +21,17 @@ export const createRoom = async (roomData) => {
   });
   return res.data;
 };
+export const getRoomDetails = async (roomIds) => {
+  const res = await axios.post(`${API_URL}/api/rooms/details`, {roomIds});
+  return res.data;
+};
+
+// export const getRoomDetails = async (roomIds) => {
+//   try {
+//     const response = await axios.post('http://127.0.0.1:5000/api/rooms/details', { roomIds });
+//     return response.data;
+//   } catch (error) {
+//     console.error('Failed to fetch room details:', error);
+//     throw error;
+//   }
+// };
