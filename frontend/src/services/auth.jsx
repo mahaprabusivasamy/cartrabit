@@ -4,8 +4,16 @@ import axios from 'axios';
 const API_URL = 'http://127.0.0.1:5000';
 
 export const ownerLogin = async (email, password) => {
-  const res = await axios.post(`${API_URL}/api/auth/login`, { email, password });
-  localStorage.setItem('x-auth-token', res.data.token);
+  try{
+    const res = await axios.post(`${API_URL}/api/auth/login`, { email, password });
+    const{token,owner}=res.data;
+
+    localStorage.setItem('x-auth-token',token);
+    localStorage.setItem('owner', JSON.stringify(owner));
+    return owner;
+  }catch (error) {
+    throw new Error('Login failed'); // Handle login failure
+  }
 };
 
 export const ownerRegister = async (name, email, password) => {

@@ -1,0 +1,65 @@
+.room-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .room-form-container h2 {
+    text-align: center;
+  }
+  
+  .room-form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .room-form-container input,
+  .room-form-container textarea,
+  .room-form-container button {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .amenities-container,
+  .images-container {
+    margin-bottom: 20px;
+  }
+  
+  .amenity-item,
+  .image-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .amenity-item input,
+  .image-item input {
+    flex: 1;
+  }
+  
+  .amenity-item button,
+  .image-item button {
+    margin-left: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .amenity-item button:hover,
+  .image-item button:hover {
+    background-color: darkred;
+  }
+  
+  .images-container img {
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  

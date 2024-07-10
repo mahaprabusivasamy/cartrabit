@@ -8,16 +8,17 @@ export const getAvailableRooms = async () => {
   return res.data;
 };
 
-export const getOwnerRooms = async () => {
-  const res = await axios.get(`${API_URL}/owner/rooms`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+export const getOwnerRooms = async (ownerId) => {
+  console.log("fetch owner room details");
+  const res = await axios.get(`${API_URL}/api/rooms/owner/${ownerId}`, {
+    headers: { 'x-auth-token': `${localStorage.getItem('x-auth-token')}` },
   });
   return res.data;
 };
 
 export const createRoom = async (roomData) => {
-  const res = await axios.post(`${API_URL}/owner/rooms`, roomData, {
-    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+  const res = await axios.post(`${API_URL}/api/rooms/create`, roomData, {
+    headers: { 'x-auth-token': `${localStorage.getItem('x-auth-token')}` },
   });
   return res.data;
 };
@@ -25,6 +26,13 @@ export const getRoomDetails = async (roomIds) => {
   const res = await axios.post(`${API_URL}/api/rooms/details`, {roomIds});
   return res.data;
 };
+
+export const updateRoomDetails = async(roomId,roomData)=>{
+const res=await axios.put(`${API_URL}/api/rooms/${roomId}`,roomData,{
+  headers:{'x-auth-token':`${localStorage.getItem('x-auth-token')}`},
+});
+return res.data;
+}
 
 // export const getRoomDetails = async (roomIds) => {
 //   try {
@@ -35,3 +43,10 @@ export const getRoomDetails = async (roomIds) => {
 //     throw error;
 //   }
 // };
+
+export const deleteRoom = async(roomId)=>{
+  const res=await axios.delete(`${API_URL}/api/rooms/delete/${roomId}`,{
+    headers:{'x-auth-token':`${localStorage.getItem('x-auth-token')}`},
+  })
+  return res.data;
+}

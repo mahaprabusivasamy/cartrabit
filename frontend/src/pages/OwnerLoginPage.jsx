@@ -1,7 +1,7 @@
 // src/pages/OwnerLoginPage.js
 import  { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ownerLogin } from '../services/auth';
+import { ownerLogin,customerLogin } from '../services/auth';
 import img from "../assets/Auth/logo-owner-login.jpg"
 import "./css/CustomerLoginPage.css"
 
@@ -13,8 +13,10 @@ const OwnerLoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const owner=await ownerLogin(email, password);
-      navigate('/owner/dashboard',{state:{owner}});
+      const owner=await customerLogin(email, password);
+      console.log(owner)
+     localStorage.setItem('user', JSON.stringify(owner));
+      navigate('/owner/dashboard',{state: { owner }});
     } catch (error) {
       alert('Invalid credentials');
     }

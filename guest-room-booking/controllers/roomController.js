@@ -15,8 +15,9 @@ const Room = require('../models/Room');
 
 exports.createRoom = async (req, res) => {
   const { ownerId, roomName, floorSize, amenities, rent, minDay, maxDay, images } = req.body;
-
+  console.log("not go");
   try {
+    console.log("hello user");
     const room = new Room({ ownerId, roomName, floorSize, amenities, rent, minDay, maxDay, images });
     await room.save();
     res.send(room);
@@ -39,8 +40,10 @@ exports.getAvailableRooms = async (req, res) => {
 
 exports.getOwnerRooms = async (req, res) => {
   const { ownerId } = req.params;
+  console.log("fetch owner room details");
   try {
-    const rooms = await Room.find({ owner_id: ownerId });
+    const rooms = await Room.find({ ownerId: ownerId });
+    console.log("fetch owner room details");
     res.send(rooms);
   } catch (err) {
     console.error(err.message);
@@ -81,3 +84,22 @@ exports.details = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 };
+
+
+exports.deleteRoom = async(req,res)=>{
+  console.log("not comming");
+  const { roomId } = req.params;
+  console.log(roomId);
+  try {
+    const room = await Room.findById(roomId);
+    if (!room) {
+      return res.status(404).json({ msg: 'Room not found' });
+    }
+    console.log(roomId);
+    await room.remove();
+    res.json({ msg: 'Room removed' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
+}

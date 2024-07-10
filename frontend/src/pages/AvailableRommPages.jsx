@@ -10,6 +10,7 @@ const AvailableRoomsPage = () => {
     const fetchRooms = async () => {
       try {
         const res = await getAvailableRooms();
+        console.log(res)
         setRooms(res);
       } catch (error) {
         console.error('Failed to fetch rooms:', error);
