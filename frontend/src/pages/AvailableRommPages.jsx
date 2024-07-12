@@ -1,28 +1,11 @@
-// src/pages/AvailableRoomsPage.jsx
-import  { useEffect, useState } from 'react';
-import { getAvailableRooms } from '../services/room';
+import { useEffect, useState } from 'react';
 import RoomCard from '../components/RoomCard';
+import "./css/AvailableRoomPage.css"
 
-const AvailableRoomsPage = () => {
-  const [rooms, setRooms] = useState([]);
-
-  useEffect(() => {
-    const fetchRooms = async () => {
-      try {
-        const res = await getAvailableRooms();
-        console.log(res)
-        setRooms(res);
-      } catch (error) {
-        console.error('Failed to fetch rooms:', error);
-      }
-    };
-    fetchRooms();
-  }, []);
-
+const AvailableRoomPages = ({ rooms }) => {
   return (
     <div>
-      <h2>Available Rooms</h2>
-      <div>
+      <div className="roomList">
         {rooms.map(room => (
           <RoomCard key={room._id} room={room} />
         ))}
@@ -31,4 +14,4 @@ const AvailableRoomsPage = () => {
   );
 };
 
-export default AvailableRoomsPage;
+export default AvailableRoomPages;

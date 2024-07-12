@@ -93,20 +93,24 @@ const RoomCard = ({ room }) => {
   };
 
   return (
+    <div className="roomCardContainer">
     <div className="room-card">
     <div className="image-slider">
       <img src={room.images[currentImageIndex]} alt={`Room ${currentImageIndex + 1}`} className="slider-image" />
       <button className="prev-button" onClick={prevImage}>&#10094;</button>
       <button className="next-button" onClick={nextImage}>&#10095;</button>
     </div>
+    <div className="rc_container">
     <div className="room-details">
-      <h3 className="room-name">{room.roomName}</h3>
-      <p>{room.floorSize}</p>
-      <p>Amenities: {room.amenities.join(', ')}</p>
-      <p>Rent: ${room.rent}</p>
-      <p>Min Day: {room.minDay}, Max Day: {room.maxDay}</p>
+      <h3 className="roomname">{room.roomName}</h3>
+      <p className='description'>{room.description}</p>
+      {/* <p className='floorsize'>{room.floorSize}</p>
+      <p className='amenties'>Amenities: {room.amenities.join(', ')}</p>*/}
+     
+      <p className='minmax'>Min Day: {room.minDay}, Max Day: {room.maxDay}</p>
+      <p className='rent'>Rent: ${room.rent}</p> 
     </div>
-    <div className="date-picker-container">
+    {/* <div className="date-picker-container">
       <div className="date-picker">
         <label>From Date:</label>
         <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
@@ -115,9 +119,9 @@ const RoomCard = ({ room }) => {
         <label>To Date:</label>
         <DatePicker selected={endDate} onChange={(date) => setEndDate(date)} />
       </div>
-    </div>
-    <button className="book-button" onClick={handleBook}>Book</button>
-  </div>
+    </div> */}
+    <button className="bookbutton" onClick={handleBook}>Book</button></div>
+  </div></div>
   );
 };
 
