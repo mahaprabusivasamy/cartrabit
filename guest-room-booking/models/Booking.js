@@ -2,12 +2,19 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const bookingSchema = new Schema({
-  room_id: { type: Schema.Types.ObjectId, ref: 'Room' },
-  customer_id: { type: Schema.Types.ObjectId, ref: 'User' },
-  rental_amount: Number,
-  booked_date: Date,
-  stay_duration: Number,
-  status: { type: String, enum: ['booked', 'available'], default: 'booked' }
+  booking_id: { type: String, required: true },
+  room_id: { type: Schema.Types.ObjectId, ref: 'Room', required: true },
+  customer_details: {
+    name: { type: String, required: true},
+    email: { type: String , required: true},
+    phone: { type: String , required: true},
+    address: { type: String , required: true}
+  },
+  from_date: { type: Date , required: true},
+  to_date: { type: Date, required: true},
+  adults: { type: Number, required: true},
+  kids: { type: Number, required: true },
+  amount: { type: Number, required: true}
 });
 
 module.exports = mongoose.model('Booking', bookingSchema);

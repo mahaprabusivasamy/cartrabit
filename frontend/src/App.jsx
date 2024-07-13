@@ -10,6 +10,7 @@ import CustomerBookingsPage from './pages/CustomerBookingsPage';
 import CustomerDashboardPage from './pages/CustomerDashboardPage';
 import AvailableRoomsPage from './pages/AvailableRommPages';
 import MainPage from './pages/MainPage/MainPage';
+import BookingPage from './components/BookingPage';
 
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
             <Route path="/customer/rooms" element={<AvailableRoomsPage/>} />
             <Route path="/customer/bookings" element={<CustomerBookingsPage />} />
             <Route path="/customer/dashboard/" element={<CustomerDashboardPage/>} />
-
+            <Route path="/booking" element={<BookingPage/>} />
           </Routes>
         </main>
       </div>

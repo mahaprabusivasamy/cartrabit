@@ -17,22 +17,29 @@ export const getCustomerBookings = async (customer) => {
   return res.data;
 };
 
-export const bookRoom = async (room_id, booked_date, stay_duration_days) => {
-    const token = localStorage.getItem('x-auth-token');
-    if (!token) {
-      throw new Error('No token found');
-    }
+export const bookroom = async (bookingData) => {
+  console.log("111");
+  const res = await axios.post(`${API_URL}/api/bookings/book `,{bookingData});
+  console.log("api fe sucess");
+  return res.data;
+};
+
+// export const bookRoom = async (room_id, booked_date, stay_duration_days) => {
+//     const token = localStorage.getItem('x-auth-token');
+//     if (!token) {
+//       throw new Error('No token found');
+//     }
   
-    try {
-      const res = await axios.post(
-        `${API_URL}/api/bookings/book`,
-        { room_id, booked_date, stay_duration_days },
-        {
-          headers: { 'x-auth-token': token },
-        }
-      );
-      return res.data;
-    } catch (error) {
-      throw error.response.data.msg || error.message;
-    }
-  };
+//     try {
+//       const res = await axios.post(
+//         `${API_URL}/api/bookings/book`,
+//         { room_id, booked_date, stay_duration_days },
+//         {
+//           headers: { 'x-auth-token': token },
+//         }
+//       );
+//       return res.data;
+//     } catch (error) {
+//       throw error.response.data.msg || error.message;
+//     }
+//   };

@@ -2,17 +2,16 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { bookRoom } from '../services/booking';
+
 import '../pages/css/Roomcard.css'; // Import the CSS file for styles
-import { useNavigation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const RoomCard = ({ room }) => {
 
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
- 
-
+  const navigate = useNavigate();
   const handleBook = async () => {
     // if (!startDate || !endDate) {
     //   alert('Please select both start and end dates.');
@@ -33,6 +32,8 @@ const RoomCard = ({ room }) => {
     //   console.error('Failed to book room:', error);
     //   alert('F=ailed to book room');
     // }
+    navigate('/booking', { state: { room } });
+
   };
   
 
@@ -68,7 +69,7 @@ const RoomCard = ({ room }) => {
             <p className='minmax'>Min Day: {room.minDay}, Max Day: {room.maxDay}</p>
             <p className='rent'>Rent: {room.rent}</p>
           </div>
-          <button className="bookbutton" onClick={handleBook()}>Book</button>
+          <button className="bookbutton" onClick={handleBook}>Book</button>
         </div>
       </div>
     </div>
