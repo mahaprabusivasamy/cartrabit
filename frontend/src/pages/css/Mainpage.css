@@ -1,63 +1,156 @@
-*{
-    list-style:none;
-    text-decoration: none;
-}
-header{
- display: flex;
- list-style: none;
- justify-content: space-between;
- background-color: rgb(255, 248, 217);
+/* Mainpage.css */
+
+* {
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 
-
-header h1{
-    font-size: 20px;
-    padding: 10px;
-    color: rgb(19, 19, 19);
-    font-family: fantasy;
-    letter-spacing: 3px;
-}
-header nav ul{
-    display: flex;
-    margin-top: 20px;
-
-}
-nav li a{
-    padding:8px;
-    margin: 10px;
-    color: rgb(0, 0, 0);
-    /* background-color: rgb(78, 78, 78); */
-    border-radius: 10px;
-
-}
-nav li a{
-    font-size: 17px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-}
-li a:hover{
-    background-color: rgb(0, 3, 47);
-    color: white;
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  padding: 10px;
+}
+
+header h1 {
+  font-size: 20px;
+  color: rgb(19, 19, 19);
+  font-family: fantasy;
+  letter-spacing: 3px;
+  font-weight: 100;
+}
+header nav{
+margin-top: 10px;
+}
+header nav ul {
+  display: flex;
+
+  padding: 0;
+}
+
+nav li a {
+  /* padding: 8px; */
+  /* margin: 10px; */
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  
+  font-size: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav li a:hover {
+  background-color: rgb(0, 3, 47);
+  color: white;
+}
 
 .mainpageContent {
-    display: flex;
-flex-direction: column;
-  }
-  
-  .filterSection {
-    width: 100%;
-  }
-  
-  .roomsSection {
-    width: 60%;
-    padding-left: 20px; /* Add some padding for better separation */
-  }
-  
-  .roomList {
-    display: flex;
-   
-    flex-wrap: wrap;
-    gap: 20px; /* Adjust spacing between room cards */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
+
+.filterSection {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.roomsSection {
+  width: 100%;
+}
+
+.roomList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.room-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.room-card:hover {
+  transform: scale(1.05);
+}
+
+.image-slider {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.slider-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev-button,
+.next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+.room-details {
+  padding: 15px;
+}
+
+.roomname {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.description {
+  color: #555;
+}
+
+.minmax,
+.rent {
+  font-weight: bold;
+}
+
+.bookbutton {
+  width: 100%;
+  background-color: rgb(223, 234, 255);
+  color: rgb(0, 0, 0);
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.bookbutton:hover {
+  background-color: #5691ff;
+}

@@ -4,7 +4,7 @@ import "./css/AvailableRoomPage.css"
 
 const AvailableRoomPages = ({ rooms }) => {
   return (
-    <div>
+    <div className='roomcontainer'>
       <div className="roomList">
         {rooms.map(room => (
           <RoomCard key={room._id} room={room} />

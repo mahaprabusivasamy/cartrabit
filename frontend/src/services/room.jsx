@@ -18,7 +18,8 @@ export const getOwnerRooms = async (ownerId) => {
 
 export const createRoom = async (roomData) => {
   const res = await axios.post(`${API_URL}/api/rooms/create`, roomData, {
-    headers: { 'x-auth-token': `${localStorage.getItem('x-auth-token')}` },
+    headers: { 'Content-Type': 'multipart/form-data',
+       'x-auth-token': `${localStorage.getItem('x-auth-token')}` },
   });
   return res.data;
 };

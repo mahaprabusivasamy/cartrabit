@@ -281,35 +281,96 @@
 .bookbutton:hover {
   background-color: rgb(255, 150, 150);
 } */
-.room-card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
+/* src/pages/css/Roomcard.css */
+/* Mainpage.css */
+
+
+header h1 {
+  font-size: 20px;
+  color: rgb(19, 19, 19);
+  font-family: fantasy;
+  letter-spacing: 3px;
+}
+
+header nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+nav li a {
+  padding: 8px;
+  margin: 10px;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  font-size: 17px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+nav li a:hover {
+  background-color: rgb(0, 3, 47);
+  color: white;
+}
+
+.mainpageContent {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   padding: 20px;
 }
 
-.room-card {
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: rgb(255, 255, 255);
+.filterSection {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
+.roomsSection {
+  width: 100%;
+}
+
+.roomList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.room-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.2s;
+  position: relative;
+  margin: 20px;
+}
+
+.room-card:hover {
+  transform: scale(1.05);
+}
+.description{
+  font-size: 13px;
+}
+.rent{
+  color: #4CAF50;
+}
+.minmax{
+  font-size: 14px; 
+  font-weight: 100;
+  color: #2e2e2e; 
+}
 .image-slider {
   position: relative;
   width: 100%;
-  height: auto;
+  height: 200px;
+  overflow: hidden;
 }
 
 .slider-image {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -323,6 +384,7 @@
   border: none;
   padding: 10px;
   cursor: pointer;
+  border-radius: 50%;
 }
 
 .prev-button {
@@ -333,55 +395,140 @@
   right: 10px;
 }
 
-.rc_container {
-  padding: 10px;
-}
-
 .room-details {
-  margin: 10px 0;
+  padding: 15px;
 }
 
-.room-details .roomname {
-  text-align: center;
-  font-size: 18px;
+.room-name {
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
-.room-details .description {
-  font-size: 14px;
-  color: grey;
-  text-align: left;
-}
-
-.room-details .minmax {
-  font-size: 13px;
-}
-
-.room-details .rent {
-  font-size: 14px;
-  text-align: center;
-  color: green;
-}
-
-.date-picker-container {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 10px;
-}
-
-.date-picker {
-  width: 45%;
-}
-
-.bookbutton {
-  background-color: rgb(255, 179, 179);
-  width: 100%;
-  margin-top: 5px;
-  border: 1px solid gray;
-  padding: 10px 0;
+.edit-button,
+.delete-button {
+  width: 48%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px;
+  border: none;
   cursor: pointer;
   text-align: center;
+  border-radius: 8px;
+  transition: background-color 0.2s;
 }
 
-.bookbutton:hover {
-  background-color: rgb(255, 150, 150);
+.edit-button:hover {
+  background-color: #45a049;
 }
+
+.delete-button {
+  background-color: #f44336;
+}
+
+.delete-button:hover {
+  background-color: #e31b0c;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.edit-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 500px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: zoom-in 0.3s;
+}
+
+.edit-modal-content {
+  padding: 20px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.success-popup {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -20%);
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  animation: fade-in-out 3s;
+}
+
+@keyframes fade-in-out {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+
+.room-card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.image-edit-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.image-edit-box {
+  position: relative;
+}
+
+.image-edit-box img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.image-edit-box button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: rgba(255, 0, 0, 0.7);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 5px;
+}
+

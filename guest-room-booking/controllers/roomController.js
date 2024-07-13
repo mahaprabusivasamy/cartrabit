@@ -1,9 +1,12 @@
 const Room = require('../models/Room');
 
+
 // exports.createRoom = async (req, res) => {
-//   const { owner_id, room_name, floor_size, amenities, min_days, max_days, images } = req.body;
+//   const { ownerId, roomName, floorSize, amenities, rent, minDay, maxDay, images } = req.body;
+//   console.log("not go");
 //   try {
-//     const room = new Room({ owner_id, room_name, floor_size, amenities, min_days, max_days, images });
+//     console.log("hello user");
+//     const room = new Room({ ownerId, roomName, floorSize, amenities, rent, minDay, maxDay, images });
 //     await room.save();
 //     res.send(room);
 //   } catch (err) {
@@ -11,14 +14,16 @@ const Room = require('../models/Room');
 //     res.status(500).send('Server error');
 //   }
 // };
-// const Room = require('../models/Room');
-
 exports.createRoom = async (req, res) => {
-  const { ownerId, roomName, floorSize, amenities, rent, minDay, maxDay, images } = req.body;
-  console.log("not go");
+  const { ownerId, roomName, floorSize, amenities, rent, minDay, maxDay, address, description, location, adults, kids } = req.body;
+  let images = [];
+
+  if (req.files) {
+    images = req.files.map(file => file.buffer.toString('base64')); // Store images as base64 strings
+  }
+
   try {
-    console.log("hello user");
-    const room = new Room({ ownerId, roomName, floorSize, amenities, rent, minDay, maxDay, images });
+    const room = new Room({ ownerId, roomName, floorSize, amenities, rent, minDay, maxDay, images, address, description, location, adults, kids });
     await room.save();
     res.send(room);
   } catch (err) {
@@ -26,7 +31,6 @@ exports.createRoom = async (req, res) => {
     res.status(500).send('Server error');
   }
 };
-
 
 exports.getAvailableRooms = async (req, res) => {
   try {
@@ -51,17 +55,17 @@ exports.getOwnerRooms = async (req, res) => {
   }
 };
 
-exports.updateRoom = async (req, res) => {
-  const { roomId } = req.params;
-  const updateData = req.body;
-  try {
-    const room = await Room.findByIdAndUpdate(roomId, updateData, { new: true });
-    res.send(room);
-  } catch (err) {
-    console.error(err.message);
-    res.status(500).send('Server error');
-  }
-};
+  exports.updateRoom = async (req, res) => {
+    const { roomId } = req.params;
+    const updateData = req.body;
+    try {
+      const room = await Room.findByIdAndUpdate(roomId, updateData, { new: true });
+      res.send(room);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server error');
+    }
+  };
 
 
 exports.details = async (req, res) => {

@@ -3,6 +3,7 @@ import React from 'react';
 import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import CustomerBookingsPage from './CustomerBookingsPage';
 import AvailableRoomsPage from './AvailableRommPages';
+import "./css/Mainpage.css"
 import "./css/CustomerDashboardPage.css"
 const CustomerDashboardPage = () => {
   const customer = JSON.parse(localStorage.getItem('user'));

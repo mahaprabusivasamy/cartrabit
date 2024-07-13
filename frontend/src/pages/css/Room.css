@@ -1,65 +1,115 @@
 .room-form-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background-color: #f9f9f9;
-  }
-  
-  .room-form-container h2 {
-    text-align: center;
-  }
-  
-  .room-form-container form {
-    display: flex;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 80%;
+  margin: auto;
+}
+
+.room-form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+/*  */
+.remove{
+  width: 10%;
+  color: black;
+  border-radius: 50%;
+  font-size: 17px;
+  padding: 5px;
+}
+.amenties{
+  color: rgb(0, 0, 0);
+}
+.room-form-container form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.left-column,
+.right-column {
+  flex: 1;
+  min-width: 300px; /* Ensures columns do not shrink too small */
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.room-form-container input[type="text"],
+.room-form-container input[type="number"],
+.room-form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+textarea {
+  height: 80px;
+}
+
+.amenities-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.amenity-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.images-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.image-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.room-form-container button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* button[type="button"] {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 20px;
+  cursor: pointer;
+} */
+
+@media (max-width: 768px) {
+  form {
     flex-direction: column;
   }
-  
-  .room-form-container input,
-  .room-form-container textarea,
-  .room-form-container button {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+
+  .left-column,
+  .right-column {
+    min-width: 100%;
   }
-  
-  .amenities-container,
-  .images-container {
-    margin-bottom: 20px;
-  }
-  
-  .amenity-item,
-  .image-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
-  
-  .amenity-item input,
-  .image-item input {
-    flex: 1;
-  }
-  
-  .amenity-item button,
-  .image-item button {
-    margin-left: 10px;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-  }
-  
-  .amenity-item button:hover,
-  .image-item button:hover {
-    background-color: darkred;
-  }
-  
-  .images-container img {
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
+}

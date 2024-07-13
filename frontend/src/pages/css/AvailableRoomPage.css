@@ -1,0 +1,97 @@
+/* .roomList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+  }
+  
+  .room-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.2s;
+  }
+  
+  .room-card:hover {
+    transform: scale(1.05);
+  }
+  
+  .image-slider {
+    position: relative;
+    width: 100%;
+    height: 300px; 
+    overflow: hidden;
+  }
+  
+  .slider-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  }
+  
+  .prev-button,
+  .next-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .prev-button {
+    left: 10px;
+  }
+  
+  .next-button {
+    right: 10px;
+  }
+  
+  .room-details {
+    padding: 15px;
+  }
+  
+  .roomname {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    color: #555;
+  }
+  
+  .minmax,
+  .rent {
+    font-weight: bold;
+  }
+  
+  .bookbutton {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: background-color 0.2s;
+  }
+  
+  .bookbutton:hover {
+    background-color: #45a049;
+  }
+
+  .roomcontainer{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+  } */

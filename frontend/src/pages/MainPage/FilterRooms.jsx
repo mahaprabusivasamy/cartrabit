@@ -34,23 +34,23 @@ const FilterRooms = ({ data, onFilter }) => {
       {/* <h1>Filter Rooms</h1> */}
       <div className='filter'>
         <label>
-          Location:
+          Location <span></span>
           <input type="text" name="location" placeholder='location' value={filters.location} onChange={handleChange} />
         </label> 
         <label>
-          From Date:
+          From Date <span></span>
           <input type="date" name="fromDate" value={filters.fromDate} onChange={handleChange} />
         </label>
         <label>
-          To Date:
+          To Date <span></span>
           <input type="date" name="toDate" value={filters.toDate} onChange={handleChange} />
         </label>
         <label>
-          Adults:
+          Adults <span></span>
           <input type="number" name="adults" placeholder='adults' value={filters.adults} onChange={handleChange} />
         </label>
         <label>
-          Kids:
+          Kids <span></span>
           <input type="number" name="kids" placeholder='kids' value={filters.kids} onChange={handleChange} />
         </label> 
         <button className='filterreset' onClick={() => setFilters({
