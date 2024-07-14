@@ -39,8 +39,7 @@ To use the Guest Room Booking Application, follow these steps:
 
 ## **Steps for create a room**
 
-1. go owner login 
-
+1. 
 ## **Authors and Acknowledgment**
 
 The Guest Room Booking Application was created by Mahaprabu S(https://github.com/mahaprabusivasamy).
