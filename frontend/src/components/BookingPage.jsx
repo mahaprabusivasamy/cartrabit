@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { jsPDF } from 'jspdf';
-import '../pages/css/BookingPage.css'; // Import the CSS file for styles
+import '../pages/css/BookingPage.css'; 
 import { bookroom } from '../services/booking';
 import { useNavigate } from 'react-router-dom';
+
+
 const BookingPage = () => {
   const location = useLocation();
   const { room } = location.state; // Get room details from location state
@@ -98,7 +100,7 @@ const navigation=useNavigate();
       setIsEditable(false); // Disable editing after submission
       console.log('User Details:', user);
       console.log('Booking Details:', bookingDetails);
-      // Add your booking confirmation logic here
+      
     }
   };
 

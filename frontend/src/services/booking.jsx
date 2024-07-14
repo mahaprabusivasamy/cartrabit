@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const API_URL = 'http://127.0.0.1:5000';
 
+// owner room bookings details
 export const getOwnerBookings = async () => {
   const res = await axios.get(`${API_URL}/api/bookings/owner`, {
     headers: { 'x-auth-token': localStorage.getItem('x-auth-token') },
@@ -10,6 +11,7 @@ export const getOwnerBookings = async () => {
   return res.data;
 };
 
+//customer bookings details
 export const getCustomerBookings = async (customer) => {
   const res = await axios.get(`${API_URL}/api/bookings/customer?customerId=${customer.id} `, {
     headers: { 'x-auth-token': localStorage.getItem('x-auth-token') },
@@ -17,6 +19,7 @@ export const getCustomerBookings = async (customer) => {
   return res.data;
 };
 
+// book a room 
 export const bookroom = async (bookingData) => {
   console.log("111");
   const res = await axios.post(`${API_URL}/api/bookings/book `,{bookingData});
@@ -24,22 +27,14 @@ export const bookroom = async (bookingData) => {
   return res.data;
 };
 
-// export const bookRoom = async (room_id, booked_date, stay_duration_days) => {
-//     const token = localStorage.getItem('x-auth-token');
-//     if (!token) {
-//       throw new Error('No token found');
-//     }
-  
-//     try {
-//       const res = await axios.post(
-//         `${API_URL}/api/bookings/book`,
-//         { room_id, booked_date, stay_duration_days },
-//         {
-//           headers: { 'x-auth-token': token },
-//         }
-//       );
-//       return res.data;
-//     } catch (error) {
-//       throw error.response.data.msg || error.message;
-//     }
-//   };
+
+// get the booking range for avoid multiple booking on same date
+export const getBookingsInRange = async (filters) => {
+  try {
+    const response = await axios.post('/api/bookings/bookings-in-range', filters);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching bookings:', error);
+    throw error;
+  }
+};

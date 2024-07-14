@@ -1,5 +1,5 @@
 // src/pages/OwnerBookingsPage.jsx
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { getOwnerBookings } from '../services/booking';
 import BookingTable from '../components/BookingTable';
 
@@ -18,6 +18,7 @@ const OwnerBookingsPage = () => {
     fetchBookings();
   }, []);
 
+  // booking details of the owner 
   return (
     <div>
       <h2>Bookings</h2>

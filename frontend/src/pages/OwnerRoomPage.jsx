@@ -5,8 +5,8 @@ import OwnerRoomCard from '../components/OwnerRoomCard';
 
 const OwnerRoomsPage = ({ownerId}) => {
   const [rooms, setRooms] = useState([]);
-  // const ownerId = JSON.parse(localStorage.getItem('owner')).id; // Assuming owner ID is stored in localStorage
-
+  
+// fetch owner rooms
   useEffect(() => {
     const fetchRooms = async () => {
       try {
@@ -21,6 +21,7 @@ const OwnerRoomsPage = ({ownerId}) => {
     fetchRooms();
   }, [ownerId]);  
 
+  // owner rooms
   return (
     <div>
       <h2>My Rooms</h2>

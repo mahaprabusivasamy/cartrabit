@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const API_URL = 'http://127.0.0.1:5000';
 
+// owner login
 export const ownerLogin = async (email, password) => {
   try{
     const res = await axios.post(`${API_URL}/api/auth/login`, { email, password });
@@ -16,10 +17,12 @@ export const ownerLogin = async (email, password) => {
   }
 };
 
+// owner registration
 export const ownerRegister = async (name, email, password) => {
   await axios.post(`${API_URL}/api/auth/register`, { name, email, password, role: 'owner' });
 };
 
+// customer login 
 export const customerLogin = async (email, password) => {
     try {
       const response = await axios.post(`${API_URL}/api/auth/login`, { email, password });
@@ -34,6 +37,7 @@ export const customerLogin = async (email, password) => {
     }
   };
 
+  // customer registration
 export const customerRegister = async (name, email, password) => {
   await axios.post(`${API_URL}/api/auth/register`, { name, email, password, role: 'customer' });
 };

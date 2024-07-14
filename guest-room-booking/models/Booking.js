@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+
+// booking shema
 const bookingSchema = new Schema({
   booking_id: { type: String, required: true },
   room_id: { type: Schema.Types.ObjectId, ref: 'Room', required: true },

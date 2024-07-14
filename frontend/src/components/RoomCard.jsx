@@ -1,37 +1,19 @@
 
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
+import { useState } from 'react';
+// import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-import '../pages/css/Roomcard.css'; // Import the CSS file for styles
+import '../pages/css/Roomcard.css'; 
 import { useNavigate } from 'react-router-dom';
 
 const RoomCard = ({ room }) => {
 
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  // const [startDate, setStartDate] = useState(null);
+  // const [endDate, setEndDate] = useState(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
   const handleBook = async () => {
-    // if (!startDate || !endDate) {
-    //   alert('Please select both start and end dates.');
-    //   return;
-    // }
-  
-    // const stayDurationDays = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-
-    // if (stayDurationDays < room.minDay || stayDurationDays > room.maxDay) {
-    //   alert(`Stay duration must be between ${room.minDay} and ${room.maxDay} days.`);
-    //   return;
-    // }
-
-    // try {
-    //   await bookRoom(room._id, startDate, stayDurationDays);
-    //   alert('Room booked successfully');
-    // } catch (error) {
-    //   console.error('Failed to book room:', error);
-    //   alert('F=ailed to book room');
-    // }
+    
     navigate('/booking', { state: { room } });
 
   };
@@ -50,6 +32,8 @@ const RoomCard = ({ room }) => {
     return `data:image/jpeg;base64,${base64String}`;
   };
 
+
+  // room card to display the rooms
   return (
     <div className="roomCardContainer">
       <div className="room-card">
@@ -65,6 +49,8 @@ const RoomCard = ({ room }) => {
         <div className="rc_container">
           <div className="room-details">
             <h3 className="roomname">{room.roomName}</h3>
+            <p className='location'>{room.location}</p>
+            <p className='address'>{room.address}</p>
             <p className='description'>{room.description}</p>
             <p className='minmax'>Min Day: {room.minDay}, Max Day: {room.maxDay}</p>
             <p className='rent'>Rent: {room.rent}</p>

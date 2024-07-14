@@ -12,6 +12,8 @@ const OwnerDashboardPage = () => {
     navigate('/');
   };
 console.log(owner)
+
+// owner dashboard
   return (
     <div>
       <header>

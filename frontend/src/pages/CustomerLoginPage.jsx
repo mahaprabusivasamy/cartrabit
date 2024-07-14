@@ -22,15 +22,9 @@ const CustomerLoginPage = () => {
     }
   };
 
+  // customer login 
   return (
-    // <div>
-    //   <h2>Customer Login</h2>
-    //   <form onSubmit={handleLogin}>
-    //     <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-    //     <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-    //     <button type="submit">Login</button>
-    //   </form>
-    // </div>
+  
     <div className="login-container">
     <div className="login-image">
       <img src={img} alt="Login" />

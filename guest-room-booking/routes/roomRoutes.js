@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-// for image
+
 const multer = require('multer');
 const roomController = require('../controllers/roomController');
 const authMiddleware = require('../middlewares/authMiddleware');
@@ -8,6 +8,8 @@ const authMiddleware = require('../middlewares/authMiddleware');
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
+
+// Room routes
 router.post('/create',upload.array('images'), authMiddleware, roomController.createRoom);
 router.get('/available', roomController.getAvailableRooms);
 router.get('/owner/:ownerId', authMiddleware, roomController.getOwnerRooms);

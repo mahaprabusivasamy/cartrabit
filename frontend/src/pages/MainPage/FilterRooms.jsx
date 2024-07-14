@@ -9,6 +9,7 @@ const FilterRooms = ({ data, onFilter }) => {
     kids: 0
   });
 
+  // function to set filter values
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFilters((prevFilters) => ({
@@ -17,18 +18,22 @@ const FilterRooms = ({ data, onFilter }) => {
     }));
   };
 
+  // auto render to search filter values
   useEffect(() => {
     const filteredData = data.filter((item) => {
       const isLocationMatch = filters.location ? item.location.toLowerCase().includes(filters.location.toLowerCase()) : true;
       const isAdultsMatch = filters.adults ? item.adults >= filters.adults : true;
       const isKidsMatch = filters.kids ? item.kids >= filters.kids : true;
-
+    
       return isLocationMatch && isAdultsMatch && isKidsMatch;
     });
+
 
     onFilter(filteredData);
   }, [filters, data, onFilter]);
 
+
+  // filter for room search
   return (
     <div>
       {/* <h1>Filter Rooms</h1> */}
@@ -68,3 +73,5 @@ const FilterRooms = ({ data, onFilter }) => {
 };
 
 export default FilterRooms;
+
+

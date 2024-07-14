@@ -1,5 +1,5 @@
-// src/pages/OwnerRoomsPage.js
-import React, { useEffect, useState } from 'react';
+
+import { useEffect, useState } from 'react';
 import { getOwnerRooms, createRoom } from '../services/room';
 import RoomCard from '../components/RoomCard';
 import RoomForm from '../components/RoomForm';

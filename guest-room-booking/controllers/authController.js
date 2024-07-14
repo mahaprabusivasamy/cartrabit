@@ -2,6 +2,7 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
+// Customer and HouseOwner registration based on role 
 exports.register = async (req, res) => {
   const { name, email, password, role } = req.body;
   try {
@@ -28,7 +29,7 @@ exports.register = async (req, res) => {
   }
 };
 
-
+// house owner and customer login based on the role
 exports.login = async (req, res) => {
   const { email, password } = req.body;
   try {
@@ -53,7 +54,7 @@ exports.login = async (req, res) => {
         // Add other fields as needed
       }
     };
-
+  // jwt token to mange sessions 
     jwt.sign(payload, 'RmkaC9Jl2x', { expiresIn: '1h' }, (err, token) => {
       if (err) throw err;
       res.json({

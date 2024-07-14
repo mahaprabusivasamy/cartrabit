@@ -113,3 +113,8 @@ textarea {
     min-width: 100%;
   }
 }
+
+.upload{
+  padding: 10px;
+  background-color: rgb(255, 175, 175);
+}

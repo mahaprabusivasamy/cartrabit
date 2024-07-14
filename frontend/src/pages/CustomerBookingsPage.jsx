@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { getCustomerBookings } from '../services/booking';
 import BookingTable from '../components/BookingTable';
 
+
+// customer bookings details 
 const CustomerBookingsPage = ({ customer }) => {
   const [bookings, setBookings] = useState([]);
 

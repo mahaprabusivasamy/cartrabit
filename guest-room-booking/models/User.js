@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
+
+// user schema - owner ,customer
 const userSchema = new Schema({
   name: String,
   email: String,

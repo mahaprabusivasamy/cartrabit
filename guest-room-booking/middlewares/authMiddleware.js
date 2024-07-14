@@ -1,6 +1,9 @@
 const jwt = require('jsonwebtoken');
 
+
+
 module.exports = (req, res, next) => {
+  // jwt token management initialization
   const token = req.header('x-auth-token');
 
   if (!token) {

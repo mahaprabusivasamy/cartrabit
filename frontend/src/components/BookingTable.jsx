@@ -1,5 +1,5 @@
 // src/components/BookingTable.jsx
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import { getRoomDetails } from '../services/room';
 import "../pages/css/bookingTable.css"
 const BookingTable = ({ bookings, customer }) => {

@@ -27,3 +27,23 @@
 .filter span{ 
     margin-left: 10px;
 }
+
+
+
+
+/* filter.css */
+
+  
+  .booked {
+    background-color: yellow !important;
+  }
+  
+  .hover-details {
+    position: absolute;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  

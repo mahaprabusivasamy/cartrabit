@@ -17,7 +17,7 @@ const App = () => {
   return (
     <Router>
       <div>
-      
+      {/* define routes */}
         <main>
           <Routes>
             <Route path="/" element={<MainPage/>} />

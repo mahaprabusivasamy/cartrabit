@@ -5,6 +5,7 @@ import CustomerBookingsPage from './CustomerBookingsPage';
 import AvailableRoomsPage from './AvailableRommPages';
 import "./css/Mainpage.css"
 import "./css/CustomerDashboardPage.css"
+import MainPage from './MainPage/MainPage';
 const CustomerDashboardPage = () => {
   const customer = JSON.parse(localStorage.getItem('user'));
   const navigate = useNavigate();
@@ -20,6 +21,8 @@ const CustomerDashboardPage = () => {
 
   console.log(customer);
 
+
+  // customer dashboard
   return (
     <>
       <div>
@@ -41,9 +44,10 @@ const CustomerDashboardPage = () => {
           <Route path="/bookings" element={<CustomerBookingsPage customer={customer} />} />
         </Routes> */}
       </div>
-      <AvailableRoomsPage />
+      {/* <AvailableRoomsPage />
 
-      <CustomerBookingsPage customer={customer}/>
+      <CustomerBookingsPage customer={customer}/> */}
+  <MainPage/>
     </>
   );
 };

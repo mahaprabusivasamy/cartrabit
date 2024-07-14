@@ -23,16 +23,9 @@ const OwnerRegisterPage = () => {
     }
   };
 
+  // owner registration
   return (
-    // <div>
-    //   <h2>Owner Register</h2>
-    //   <form onSubmit={handleRegister}>
-    //     <input type="text" placeholder="Name" value={name} onChange={(e) => setName(e.target.value)} required />
-    //     <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-    //     <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-    //     <button type="submit">Register</button>
-    //   </form>
-    // </div>
+  
     <div className="register-container">
     <div className="register-image">
       <img src={img} alt="Register" />
