@@ -12,7 +12,7 @@ The application uses React with Vite for the frontend, Express.js for the backen
 <!-- ![alt text](image.png)  ![alt text](image-1.png)   ![alt text](image-2.png) -->
 <img src="images/image.png" alt="Project Overview" width="100" height="100" style="padding:20px"/>
 <img src="images/image-1.png" alt="Project Overview" width="150" height="150" style="padding:10px"/>
-<img src="image-2.png" alt="Project Overview" width="150" height="150" style="padding:10px"/>
+<img src="images/image-2.png" alt="Project Overview" width="150" height="150" style="padding:10px"/>
 
 
 
