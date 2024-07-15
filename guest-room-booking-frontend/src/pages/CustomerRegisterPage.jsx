@@ -10,12 +10,19 @@ const CustomerRegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     if(password!=confirmPassword){
       alert("Enter same password");
+    }
+    const phoneRegex = /^\d{10}$/;
+    if (!phoneRegex.test(phoneNumber)) {
+      alert('Phone number must be 10 digits long');
+      return;
     }
     try {
       await customerRegister(name, email, password,confirmPassword);
@@ -76,6 +83,18 @@ const CustomerRegisterPage = () => {
             required
           />
         </div>
+        <div className="form-group">
+            <label>Phone Number:</label>
+            <input
+              type="text"
+              name="phoneNumber"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              required
+              pattern="\d{10}"
+              title="Phone number must be 10 digits long"
+            />
+          </div>
         <button type="submit">Register</button>
       </form>
       <p>
