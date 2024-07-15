@@ -110,15 +110,6 @@ To use the Guest Room Booking Application, follow these steps:
 ![alt text](<images/Screenshot (1608).png>)
 
 
-## Works pending
-in frontend
-
- 1. each customer can see the booked details 
-
-backend & frontend 
- 
- 1. In fronted filter option of available rooms in calender 
-
 
 ## **Authors and Acknowledgment**
 
