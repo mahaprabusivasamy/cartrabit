@@ -4,14 +4,16 @@
 
 Guest Room Booking Application
 
+## **Documentaion**
+<button><a href="https://docs.google.com/document/d/1hkFgO48Wk71f2oDG2eUiBODznDWhBFVs/edit" style="padding:10px;backgroundColor:blue;color:white;border-radius:10px;">Documentaion</a> </button>
 ## **Introduction**
 
 The Guest Room Booking Application is designed to facilitate the booking and management of guest rooms by house owners. It allows house owners to register their properties, manage room details, and handle bookings. Customers can browse available rooms, check availability, and book rooms for their stay.
 
 The application uses React with Vite for the frontend, Express.js for the backend, and MongoDB as the database.
 <!-- ![alt text](image.png)  ![alt text](image-1.png)   ![alt text](image-2.png) -->
-## **Documentaion**
-<button><a href="https://docs.google.com/document/d/1hkFgO48Wk71f2oDG2eUiBODznDWhBFVs/edit" style="padding:10px;background-color:blue;color:white;border-radius:10px;">Documentaion</a> </button>
+
+
 <img src="images/image.png" alt="Project Overview" width="100" height="100" style="padding:20px"/>
 <img src="images/image-1.png" alt="Project Overview" width="150" height="150" style="padding:10px"/>
 <img src="images/image-2.png" alt="Project Overview" width="150" height="150" style="padding:10px"/>
