@@ -1,0 +1,13 @@
+.logout{
+    color: white;
+    background-color: red;
+    border-radius: 10px;
+    font-size: 12px;
+    padding: 7px;
+    margin-top: -5px;
+   border: 1px solid white;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+}

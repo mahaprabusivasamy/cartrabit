@@ -105,7 +105,7 @@ const OwnerRoomCard = ({ room }) => {
               />
             </div>
             <div>
-              <label>Rent:</label>
+              <label>Rent:</label><br />
               <input
                 type="number"
                 name="rent"
@@ -114,7 +114,7 @@ const OwnerRoomCard = ({ room }) => {
               />
             </div>
             <div>
-              <label>Min Day:</label>
+              <label>Min Day:</label><br />
               <input
                 type="number"
                 name="minDay"
@@ -123,7 +123,7 @@ const OwnerRoomCard = ({ room }) => {
               />
             </div>
             <div>
-              <label>Max Day:</label>
+              <label>Max Day:</label><br />
               <input
                 type="number"
                 name="maxDay"
@@ -143,7 +143,7 @@ const OwnerRoomCard = ({ room }) => {
                 <input type="file" onChange={handleAddImage} />
               </div>
             </div>
-            <button onClick={handleSave}>Save</button>
+            <button className='save' onClick={handleSave}>Save</button>
           </>
         ) : (
           <>
@@ -157,7 +157,7 @@ const OwnerRoomCard = ({ room }) => {
       </div>
       <div className="button-container">
         {isEditing ? (
-          <button onClick={() => setIsEditing(false)}>Cancel</button>
+          <button className='edit-button' onClick={() => setIsEditing(false)}>Cancel</button>
         ) : (
           <button className="edit-button" onClick={handleEdit}>
             Edit

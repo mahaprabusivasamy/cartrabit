@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 // import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -31,6 +31,13 @@ const RoomCard = ({ room }) => {
 
     return `data:image/jpeg;base64,${base64String}`;
   };
+  // useEffect(()=>{
+  //    const intervalId=setInterval(()=>{
+  //       nextImage();
+  //    },3000);
+
+  //    return()=>clearInterval(intervalId);
+  // },[]);
 
 
   // room card to display the rooms

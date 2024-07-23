@@ -41,7 +41,14 @@
     border: none;
     cursor: pointer;
   }
-  
+  .confirm-booking-button{
+    color: white;
+    background-color: rgb(3, 0, 67);
+    padding: 10px;
+    font-size: 15px;
+    
+    
+  }
   .confirm-button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;

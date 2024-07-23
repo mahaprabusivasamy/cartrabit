@@ -33,7 +33,7 @@ const CustomerDashboardPage = () => {
             <Link to="/customer/bookings">Bookings</Link>
           </nav> */}
           <div className="cusdashbtn">
-          <button onClick={handleLogout}>Logout</button></div>
+          <button className='logout' onClick={handleLogout}>Logout</button></div>
         </div>
         {/* <p>Customer ID: {customer.id}</p> */}
         <div className="maindashpagecustomer">
@@ -47,7 +47,8 @@ const CustomerDashboardPage = () => {
       {/* <AvailableRoomsPage />
 
       <CustomerBookingsPage customer={customer}/> */}
-  <MainPage/>
+  {/* <MainPage/> */}
+
     </>
   );
 };

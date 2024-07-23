@@ -22,7 +22,12 @@ font-weight: bold;
     font-style: italic;
 }
 .maindashpagecustomer span{
-    color: red;
+    color: rgb(0, 51, 255);
     
 }
 
+.header .logout{
+    color: white;
+    background-color: red;
+    padding: 10px;
+}

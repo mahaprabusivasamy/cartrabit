@@ -118,3 +118,10 @@ textarea {
   padding: 10px;
   background-color: rgb(255, 175, 175);
 }
+
+.title{
+  background-color: #86bdff;
+  padding: 10px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+}

@@ -3,7 +3,7 @@ import { Link, Routes, Route , useNavigate} from 'react-router-dom';
 import OwnerRoomsPage from './OwnerRoomPage';
 import OwnerBookingsPage from './OwnerBookingsPage';
 import RoomForm from '../components/RoomForm';
-
+import "../pages/css/OwnerDashboardPage.css"
 const OwnerDashboardPage = () => {
   const owner = JSON.parse(localStorage.getItem('user'));
   const navigate=useNavigate();
@@ -20,13 +20,14 @@ console.log(owner)
         <nav>
           <ul>
             <li>
-              <Link to="/owner/rooms">My Rooms</Link>
+              <a href="#rooms">My Rooms</a>
             </li>
             <li>
               <Link to="/owner/bookings">Bookings</Link>
             </li>
-            <li> <button onClick={handleLogout}>Logout</button></li>
           </ul>
+          <button className='logout' onClick={handleLogout}>Logout</button>
+
         </nav>
       </header>
       <main>
@@ -36,7 +37,10 @@ console.log(owner)
         </Routes>
       </main>
       <RoomForm ownerId={owner.id} />
+      <div id='rooms'>
       <OwnerRoomsPage ownerId={owner.id}/>
+
+      </div>
     </div>
   );
 };

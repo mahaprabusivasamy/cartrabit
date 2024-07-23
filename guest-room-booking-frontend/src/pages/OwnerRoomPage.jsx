@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { getOwnerRooms } from '../services/room';
 import RoomCard from '../components/RoomCard';
 import OwnerRoomCard from '../components/OwnerRoomCard';
+import "../pages/css/Room.css"
 
 const OwnerRoomsPage = ({ownerId}) => {
   const [rooms, setRooms] = useState([]);
@@ -24,7 +25,7 @@ const OwnerRoomsPage = ({ownerId}) => {
   // owner rooms
   return (
     <div>
-      <h2>My Rooms</h2>
+      <h2 className='title'>My Rooms</h2>
       <div className="room-card-container">
         {rooms.map(room => (
          <OwnerRoomCard key={room.id} room={room} />
