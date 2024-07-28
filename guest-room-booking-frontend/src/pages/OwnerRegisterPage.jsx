@@ -16,12 +16,33 @@ const OwnerRegisterPage = () => {
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
+  
     e.preventDefault();
+
+  
     const phoneRegex = /^\d{10}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
     if (!phoneRegex.test(phoneNumber)) {
       alert('Phone number must be 10 digits long');
       return;
     }
+
+    if (!passwordRegex.test(password)) {
+      alert('Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    // const phoneRegex = /^\d{10}$/;
+    // if (!phoneRegex.test(phoneNumber)) {
+    //   alert('Phone number must be 10 digits long');
+    //   return;
+    // }
     try {
       await ownerRegister(name, email, password);
       navigate('/owner/login');

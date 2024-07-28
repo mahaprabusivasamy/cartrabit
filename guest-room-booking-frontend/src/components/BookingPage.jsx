@@ -84,13 +84,51 @@ const navigation=useNavigate();
     }));
   };
 
+  // function convertDate(d){
+  //     let y=d.getFullYear().toString();
+  //     let m=(d.getMonth()+1).toString();
+  //     let ds=d.getDate().toString();
+  //     let mm=m.split('');
+  //     let dd=d.split('');
+
+  //     return y+'-'+(mm[1]?m:"0"+mm[0])+'-'+(dd[1]?ds:"0"+dd[0]);
+
+  // }
+
   // Handle input change for booking details
   const handleBookingChange = (e) => {
+    const date=new Date();
+    
     const { name, value } = e.target;
-    setBookingDetails((prevBooking) => ({
-      ...prevBooking,
-      [name]: value,
-    }));
+    const val=new Date(value);
+    if(name=='fromDate'){
+      if(val>=date){
+        setBookingDetails((prevBooking)=>({
+          ...prevBooking,
+          [name]:value,
+        }))
+      }
+      else{
+        alert("Don't choose past date");
+      }
+    }
+    else if(name=='toDate'){
+      console.log(val+" "+(date));
+      if(val>=date){
+        setBookingDetails((prevBooking)=>({
+          ...prevBooking,
+          [name]:value,
+        }))
+      }
+      else{
+        alert("Don't choose past date");
+      }
+
+    }
+    // setBookingDetails((prevBooking) => ({
+    //   ...prevBooking,
+    //   [name]: value,
+    // }));
   };
 
   // Handle form submission

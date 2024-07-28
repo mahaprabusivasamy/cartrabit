@@ -116,7 +116,7 @@ const RoomForm = ({ ownerId, room, onClose }) => {
                 <button className='remove' type="button" onClick={() => handleRemoveImage(index)}>&#x2716;</button>
               </div>
             ))}
-            <input className='upload' type="file" multiple onChange={handleAddImage} />
+            <input className='upload' type="file" accept='image/png' multiple onChange={handleAddImage} />
           </div>
         </div>
         <button type="submit">{room ? 'Update Room' : 'Create Room'}</button>

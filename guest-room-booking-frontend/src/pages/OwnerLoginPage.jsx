@@ -8,10 +8,32 @@ import "./css/CustomerLoginPage.css"
 const OwnerLoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordVisible,setPasswordVisible]=useState('')
   const navigate = useNavigate();
 
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
   const handleLogin = async (e) => {
     e.preventDefault();
+    // const phoneRegex = /^\d{10}$/;
+    // const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    // if (!phoneRegex.test(phoneNumber)) {
+    //   alert('Phone number must be 10 digits long');
+    //   return;
+    // }
+
+    // if (!passwordRegex.test(password)) {
+    //   alert('Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one digit, and one special character');
+    //   return;
+    // }
+
+    // if (password !== confirmPassword) {
+    //   alert('Passwords do not match');
+    //   return;
+    // }
+
     try {
       const owner=await customerLogin(email, password);
       console.log(owner)
@@ -21,6 +43,7 @@ const OwnerLoginPage = () => {
       alert('Invalid credentials');
     }
   };
+
 
   // owner login 
   return (
@@ -45,13 +68,21 @@ const OwnerLoginPage = () => {
         <div className="form-group">
           <label>Password:</label>
           <input
-            type="password"
+            type={passwordVisible ? 'text' : 'password'}
             name="password"
             value={password}
             onChange={(e)=>setPassword(e.target.value)}
             required
           />
-        </div>
+       
+        {/* <button
+              type="button"
+              className="toggle-password"
+              onClick={togglePasswordVisibility}
+            >
+              {passwordVisible ? '🙈' : '👁️'}
+            </button> */}
+            </div>
         <button type="submit">Login</button>
       </form>
       <p>
